@@ -1,9 +1,15 @@
 .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background-color: #344648;
     color: #cdcdcd;
     margin: 0;
     padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.search-field {
+    padding: 10px;
+    width: 12rem;
+    font-size: 16px;
 }
