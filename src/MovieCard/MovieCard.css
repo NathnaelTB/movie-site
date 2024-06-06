@@ -1,0 +1,90 @@
+.card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    width: 300px;
+    position: relative;
+}
+
+img {
+    width: 300px;
+    margin: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #344648;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    min-height: 100px;
+}
+
+.details h3 {
+    margin: 10px;
+    width: 10rem;
+    color: #cdcdcd;
+}
+
+.rating-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.rating-green {
+    background-color: green;
+}
+
+.rating-yellow {
+    background-color: yellow;
+}
+
+.rating-red {
+    background-color: red;
+}
+
+.overview {
+    margin: 0;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    height: 350px;
+    overflow: scroll;
+    display: none;
+}
+
+.overview h2 {
+    position: absolute;
+    margin-top: 20px;
+    top: 0;
+}
+
+.overview p {
+    text-align: center;
+    width: 90%;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card:hover .overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
