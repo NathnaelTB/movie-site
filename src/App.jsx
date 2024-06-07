@@ -39,6 +39,15 @@ const App = () => {
             image: "https://image.tmdb.org/t/p/w1280/" + element.poster_path,
           }))
         );
+        setFilteredMovies(
+          data.map((element) => ({
+            id: element.id,
+            title: element.title,
+            overview: element.overview,
+            rating: element.vote_average,
+            image: "https://image.tmdb.org/t/p/w1280/" + element.poster_path,
+          }))
+        );
       })
       .catch((err) => console.error(err));
   }, []);
