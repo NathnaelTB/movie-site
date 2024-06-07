@@ -5,6 +5,7 @@ import "./App.css";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   
   const searchChangeHandler = (input) => {
@@ -44,16 +45,16 @@ const App = () => {
 
   useEffect(() => {
     if(searchInput === '') {
-      console.log(movies);  
+      setFilteredMovies(movies);  
     } else {
-      console.log(movies.filter(element => element.title.toLowerCase().includes(searchInput.toLowerCase())));
+      setFilteredMovies(movies.filter(element => element.title.toLowerCase().includes(searchInput.toLowerCase())));
     }
   }, [searchInput]);
 
   return (
     <div>
       <Bar onSearchChange={searchChangeHandler} />
-      <Container movies={movies}/>
+      <Container movies={filteredMovies}/>
     </div>
   );
 };
