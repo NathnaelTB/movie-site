@@ -44,16 +44,16 @@ const App = () => {
 
   useEffect(() => {
     if(searchInput === '') {
-      setMovies(movies);  
+      console.log(movies);  
     } else {
-      setMovies(movies.filter(element => element.title.toLowerCase().includes(searchInput.toLowerCase())));
+      console.log(movies.filter(element => element.title.toLowerCase().includes(searchInput.toLowerCase())));
     }
   }, [searchInput]);
 
   return (
     <div>
       <Bar onSearchChange={searchChangeHandler} />
-      <Container movies={movies} input={searchInput}/>
+      <Container movies={movies}/>
     </div>
   );
 };
