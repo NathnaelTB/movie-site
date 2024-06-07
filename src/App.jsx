@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Bar from "./Bar/Bar";
 import Container from "./Container/Container";
-import './App.css';
+import "./App.css";
 
 const App = () => {
-  const [movies, setMovies] = useState([]); 
+  const [movies, setMovies] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  
+  const searchChangeHandler = (input) => {
+    console.log(searchInput);
+    setSearchInput(input);
+  };
 
   useEffect(() => {
     const options = {
@@ -25,20 +31,29 @@ const App = () => {
       .then((data) => {
         setMovies(
           data.map((element) => ({
+            id: element.id,
             title: element.title,
             overview: element.overview,
             rating: element.vote_average,
-            image: 'https://image.tmdb.org/t/p/w1280/' + element.poster_path,
+            image: "https://image.tmdb.org/t/p/w1280/" + element.poster_path,
           }))
         );
       })
       .catch((err) => console.error(err));
-  }, []); 
+  }, []);
+
+  useEffect(() => {
+    if(searchInput === '') {
+      setMovies(movies);  
+    } else {
+      setMovies(movies.filter(element => element.title.toLowerCase().includes(searchInput.toLowerCase())));
+    }
+  }, [searchInput]);
 
   return (
     <div>
-      <Bar />
-      <Container movies={movies} />
+      <Bar onSearchChange={searchChangeHandler} />
+      <Container movies={movies} input={searchInput}/>
     </div>
   );
 };
